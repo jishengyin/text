@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/bundle-summerGarden.css">
+<link id="mobile-style" media="only screen and (max-device-width: 980px)" type="text/css" rel="stylesheet" href="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/bundle-summerGarden-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/winner/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/winner/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/winner/wlwmanifest.xml">
+<script src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'winner', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/winner/"><img id="blogLogo" src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/winner/">Winner.Net@2007</a></h1>
+<h2>专注与.Net技术</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/winner/">首页</a></li>
+	<li><a href="http://news.cnblogs.com/">新闻</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Winner.Net%282007%29">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/winner/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/winner/rss"><img src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔- 334&nbsp;
+文章- 3&nbsp;
+评论- 168&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html">PHP与MYSQL事务处理</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><div>PHP与MYSQL事务处理              			<div id="appShareOpt">                                              </div>               	                    <p>/*<br> MYSQL的事务处理主要有两种方法。<br> <strong>1、用begin,rollback,commit来实现</strong><br> begin 开始一个事务<br> rollback 事务回滚<br> commit 事务确认<br> <strong>2、直接用set来改变mysql的自动提交模式</strong><br> MYSQL默认是自动提交的，也就是你提交一个QUERY，它就直接执行！我们可以通过<br> set autocommit=0 禁止自动提交<br> set autocommit=1 开启自动提交<br> 来实现事务的处理。<br> 当你用 set autocommit=0 的时候，你以后所有的SQL都将做为事务处理，直到你用commit确认或rollback结束。<br> 注意当你结束这个事务的同时也开启了个新的事务！按第一种方法只将当前的作为一个事务！<br> 个人推荐使用第一种方法！<br> MYSQL中只有INNODB和BDB类型的数据表才能支持事务处理！其他的类型是不支持的！<br> ***：一般MYSQL数据库默认的引擎是MyISAM,这种引擎不支持事务！如果要让MYSQL支持事务，可以自己手动修改:<br> 方法如下：1.修改c:\appserv\mysql\my.ini文件，找到skip-InnoDB,在前面加上#，后保存文件。<br> 2.在运行中输入：services.msc,重启mysql服务。<br> 3.到phpmyadmin中，mysql-&gt;show engines;(或执行mysql-&gt;show variables like 'have_%'; ),查看InnoDB为YES,即表示数据库支持InnoDB了。<br> 也就说明支持事务transaction了。<br> 4.在创建表时，就可以为Storage Engine选择InnoDB引擎了。如果是以前创建的表，可以使用mysql-&gt;alter table table_name type=InnoDB;<br> 或 mysql-&gt;alter table table_name engine=InnoDB;来改变数据表的引擎以支持事务。<br> */<br> <strong>/*************** transaction--1 ***************/</strong><br> $conn = mysql_connect('localhost','root','root') or die ("数据连接错误!!!");<br> mysql_select_db('test',$conn);<br> mysql_query("set names 'GBK'"); //使用GBK中文编码;<br> //开始一个事务<br> mysql_query("BEGIN"); //或者mysql_query("START TRANSACTION");<br> $sql = "INSERT INTO `user` (`id`, `username`, `sex`) VALUES (NULL, 'test1', '0')";<br> $sql2 = "INSERT INTO `user` (`did`, `username`, `sex`) VALUES (NULL, 'test1', '0')";//这条我故意写错<br> $res = mysql_query($sql);<br> $res1 = mysql_query($sql2); <br> if($res &amp;&amp; $res1){<br> mysql_query("COMMIT");<br> echo '提交成功。';<br> }else{<br> mysql_query("ROLLBACK");<br> echo '数据回滚。';<br> }<br> mysql_query("END"); <br> <strong>/**************** transaction--2 *******************/</strong><br> /*方法二*/<br> mysql_query("SET AUTOCOMMIT=0"); //设置mysql不自动提交，需自行用commit语句提交<br> $sql = "INSERT INTO `user` (`id`, `username`, `sex`) VALUES (NULL, 'test1', '0')";<br> $sql2 = "INSERT INTO `user` (`did`, `username`, `sex`) VALUES (NULL, 'test1', '0')";//这条我故意写错<br> $res = mysql_query($sql);<br> $res1 = mysql_query($sql2); <br> if($res &amp;&amp; $res1){<br> mysql_query("COMMIT");<br> echo '提交成功。';<br> }else{<br> mysql_query("ROLLBACK");<br> echo '数据回滚。';<br> }<br> mysql_query("END"); //事务处理完时别忘记mysql_query("SET AUTOCOMMIT=1");自动提交<br> <br> <strong><br> /******************对于不支持事务的MyISAM引擎数据库可以使用表锁定的方法：********************/</strong><br> <br> //MyISAM &amp; InnoDB 都支持,<br> /*<br> LOCK TABLES可以锁定用于当前线程的表。如果表被其它线程锁定，则造成堵塞，直到可以获取所有锁定为止。<br> UNLOCK TABLES可以释放被当前线程保持的任何锁定。当线程发布另一个LOCK TABLES时，或当与服务器的连接被关闭时，所有由当前线程锁定的表被隐含地解锁。<br> */<br> <br> mysql_query("LOCK TABLES `user` WRITE");//锁住`user`表<br> $sql = "INSERT INTO `user` (`id`, `username`, `sex`) VALUES (NULL, 'test1', '0')";<br> $res = mysql_query($sql);<br> if($res){<br> echo '提交成功。!';<br> }else{<br> echo '失败!';<br> }<br> mysql_query("UNLOCK TABLES");//解除锁定</p> MyISAM 是MySQL中默认的存储引擎，一般来说不是有太多人关心这个东西。决定使用什么样的存储引擎是一个很tricky的事情，但是还是值我们去研究一下，这里的文章只考虑 MyISAM 和InnoDB这两个，因为这两个是最常见的。&nbsp;&nbsp;  <br> <br> 下面先让我们回答一些问题：&nbsp;&nbsp;  <br> ◆你的数据库有外键吗？&nbsp;&nbsp;  <br> ◆你需要事务支持吗？&nbsp;&nbsp;  <br> ◆你需要全文索引吗？&nbsp;&nbsp;  <br> ◆你经常使用什么样的查询模式？&nbsp;&nbsp;  <br> ◆你的数据有多大？&nbsp;&nbsp;  <br> <br> myisam只有索引缓存&nbsp;&nbsp;  <br> <br> innodb不分索引文件数据文件 innodb buffer&nbsp;&nbsp;  <br> <br> myisam只能管理索引，在索引数据大于分配的资源时，会由操作系统来cache；数据文件依赖于操作系统的cache。innodb不管是索引还是数据，都是自己来管理&nbsp;&nbsp;  <br> <br> 思考上面这些问题可以让你找到合适的方向，但那并不是绝对的。如果你需要事务处理或是外键，那么InnoDB  可能是比较好的方式。如果你需要全文索引，那么通常来说  MyISAM是好的选择，因为这是系统内建的，然而，我们其实并不会经常地去测试两百万行记录。所以，就算是慢一点，我们可以通过使用Sphinx从 InnoDB中获得全文索引。&nbsp;&nbsp;  <br> <br> 数据的大小，是一个影响你选择什么样存储引擎的重要因素，大尺寸的数据集趋向于选择InnoDB方式，因为其支持事务处理和故障恢复。数据库的在小决定了 故障恢复的时间长短，InnoDB可以利用事务日志进行数据恢复，这会比较快。而MyISAM可能会需要几个小时甚至几天来干这些事，InnoDB只需要 几分钟。&nbsp;&nbsp;  <br> <br> 您操作数据库表的习惯可能也会是一个对性能影响很大的因素。比如： COUNT() 在 MyISAM 表中会非常快，而在InnoDB  表下可能会很痛苦。而主键查询则在InnoDB下会相当相当的快，但需要小心的是如果我们的主键太长了也会导致性能问题。大批的inserts 语句在  MyISAM下会快一些，但是updates 在InnoDB 下会更快一些——尤其在并发量大的时候。&nbsp;&nbsp;  <br> <br> 所以，到底你检使用哪一个呢？根据经验来看，如果是一些小型的应用或项目，那么MyISAM 也许会更适合。当然，在大型的环境下使用 MyISAM  也会有很大成功的时候，但却不总是这样的。如果你正在计划使用一个超大数据量的项目，而且需要事务处理或外键支持，那么你真的应该直接使用  InnoDB方式。但需要记住InnoDB 的表需要更多的内存和存储，转换100GB 的MyISAM 表到InnoDB  表可能会让你有非常坏的体验。&nbsp;&nbsp;  <br> <br> ===========================================================&nbsp;&nbsp;  <br> <br> MyISAM:这个是默认类型,它是基于传统的ISAM类型,ISAM是 Indexed Sequential Access Method  (有索引的顺序访问方法) 的缩写,它是存储记录和文件的标准方法.与其他存储引擎比较,MyISAM具有检查和修复表格的大多数工具.  MyISAM表格可以被压缩,而且它们支持全文搜索.它们不是事务安全的,而且也不支持外键。如果事物回滚将造成不完全回滚，不具有原子性。如果执行大量 的SELECT，MyISAM是更好的选择。&nbsp;&nbsp;  <br> <br> InnoDB:这种类型是事务安全的.它与BDB类型具有相同的特性,它们还支持外键.InnoDB表格速度很快.具有比BDB还丰富的特性,因此如果需 要一个事务安全的存储引擎,建议使用它.如果你的数据执行大量的INSERT或UPDATE,出于性能方面的考虑，应该使用InnoDB表,&nbsp;&nbsp;  <br> <br> 对于支持事物的InnoDB类型的标，影响速度的主要原因是AUTOCOMMIT默认设置是打开的，而且程序没有显式调用BEGIN  开始事务，导致每插入一条都自动Commit，严重影响了速度。可以在执行sql前调用begin，多条sql形成一个事物（即使autocommit打 开也可以），将大大提高性能。&nbsp;&nbsp;  <br> <br> ===============================================================&nbsp;&nbsp;  <br> <br> InnoDB和MyISAM是在使用MySQL最常用的两个表类型，各有优缺点，视具体应用而定。下面是已知的两者之间的差别，仅供参考。&nbsp;&nbsp;  <br> <br> innodb&nbsp;&nbsp;  <br> InnoDB 给 MySQL 提供了具有事务(commit)、回滚(rollback)和崩溃修复能力 (crash recovery  capabilities)的事务安全(transaction-safe (ACID compliant))型表。 InnoDB  提供了行锁(locking on row level)，提供与 Oracle 类型一致的不加锁读取(non- locking read in  SELECTs)。这些特性均提高了多用户并发操作的性能表现。在InnoDB表中不需要扩大锁定 (lock escalation)，因为  InnoDB 的列锁定(row level locks)适宜非常小的空间。 InnoDB 是 MySQL 上第一个提供外键约束(FOREIGN  KEY constraints)的表引擎。&nbsp;&nbsp;  <br> <br> InnoDB 的设计目标是处理大容量数据库系统，它的 CPU 利用率是其它基于磁盘的关系数据库引擎所不能比的。在技术上，InnoDB 是一套放在  MySQL 后台的完整数据库系统，InnoDB 在主内存中建立其专用的缓冲池用于高速缓冲数据和索引。 InnoDB  把数据和索引存放在表空间里，可能包含多个文件，这与其它的不一样，举例来说，在 MyISAM 中，表被存放在单独的文件中。InnoDB  表的大小只受限于操作系统的文件大小，一般为 2 GB。&nbsp;&nbsp;  <br> InnoDB所有的表都保存在同一个数据文件 ibdata1 中（也可能是多个文件，或者是独立的表空间文件）,相对来说比较不好备份，免费的方案可以是拷贝数据文件、备份 binlog，或者用 mysqldump。&nbsp;&nbsp;  <br> <br> <br> MyISAM&nbsp;&nbsp;  <br> MyISAM 是MySQL缺省存贮引擎 .&nbsp;&nbsp;  <br> <br> 每张MyISAM 表被存放在三个文件 。frm 文件存放表格定义。 数据文件是MYD (MYData) 。 索引文件是 MYI (MYIndex) 引伸。&nbsp;&nbsp;  <br> <br> 因为MyISAM相对简单所以在效率上要优于InnoDB..小型应用使用MyISAM是不错的选择.&nbsp;&nbsp;  <br> <br> MyISAM表是保存成文件的形式,在跨平台的数据转移中使用MyISAM存储会省去不少的麻烦&nbsp;&nbsp;  <br> <br> 以下是一些细节和具体实现的差别：&nbsp;&nbsp;  <br> <br> 1.InnoDB不支持FULLTEXT类型的索引。&nbsp;&nbsp;  <br> 2.InnoDB 中不保存表的具体行数，也就是说，执行select count(*) from  table时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count(*)语句包含  where条件时，两种表的操作是一样的。&nbsp;&nbsp;  <br> 3.对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引。&nbsp;&nbsp;  <br> 4.DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。&nbsp;&nbsp;  <br> 5.LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性（例如外键）的表不适用。&nbsp;&nbsp;  <br> <br> 另外，InnoDB表的行锁也不是绝对的，如果在执行一个SQL语句时MySQL不能确定要扫描的范围，InnoDB表同样会锁全表，例如 update table set num=1 where name like “%aaa%”&nbsp;&nbsp;  <br> <br> 任何一种表都不是万能的，只用恰当的针对业务类型来选择合适的表类型，才能最大的发挥MySQL的性能优势。&nbsp;&nbsp;  <br> <br> ===============================================================&nbsp;&nbsp;  <br> <br> <br> 以下是InnoDB和MyISAM的一些联系和区别！&nbsp;&nbsp;  <br> <br> 1. 4.0以上mysqld都支持事务，包括非max版本。3.23的需要max版本mysqld才能支持事务。&nbsp;&nbsp;  <br> <br> 2. 创建表时如果不指定type则默认为myisam，不支持事务。&nbsp;&nbsp;  <br> 可以用 show create table tablename 命令看表的类型。&nbsp;&nbsp;  <br> <br> 2.1 对不支持事务的表做start/commit操作没有任何效果，在执行commit前已经提交，测试：&nbsp;&nbsp;  <br> 执行一个msyql：&nbsp;&nbsp;  <br> use test;&nbsp;&nbsp;  <br> drop table if exists tn;&nbsp;&nbsp;  <br> create table tn (a varchar(10)) type=myisam;&nbsp;&nbsp;  <br> drop table if exists ty;&nbsp;&nbsp;  <br> create table ty (a varchar(10)) type=innodb;&nbsp;&nbsp;  <br> <br> begin;&nbsp;&nbsp;  <br> insert into tn values(‘a’);&nbsp;&nbsp;  <br> insert into ty values(‘a’);&nbsp;&nbsp;  <br> select * from tn;&nbsp;&nbsp;  <br> select * from ty;&nbsp;&nbsp;  <br> 都能看到一条记录&nbsp;&nbsp;  <br> <br> 执行另一个mysql：&nbsp;&nbsp;  <br> use test;&nbsp;&nbsp;  <br> select * from tn;&nbsp;&nbsp;  <br> select * from ty;&nbsp;&nbsp;  <br> 只有tn能看到一条记录&nbsp;&nbsp;  <br> 然后在另一边&nbsp;&nbsp;  <br> commit;&nbsp;&nbsp;  <br> 才都能看到记录。&nbsp;&nbsp;  <br> <br> 3. 可以执行以下命令来切换非事务表到事务（数据不会丢失），innodb表比myisam表更安全：&nbsp;&nbsp;  <br> &nbsp;&nbsp;  alter table tablename type=innodb;&nbsp;&nbsp;  <br> <br> 3.1 innodb表不能用repair table命令和myisamchk -r table_name&nbsp;&nbsp;  <br> 但可以用check table，以及mysqlcheck [OPTIONS] database [tables]&nbsp;&nbsp;  <br> <br> ==============================================================&nbsp;&nbsp;  <br> <br> mysql中使用select for update的必须针对InnoDb，并且是在一个事务中，才能起作用。&nbsp;&nbsp;  <br> <br> select的条件不一样，采用的是行级锁还是表级锁也不一样。&nbsp;&nbsp;  <br> 转<a>http://www.neo.com.tw/archives/900</a> 的说明&nbsp;&nbsp;  <br> <br> 由于InnoDB 预设是Row-Level Lock，所以只有「明确」的指定主键，MySQL 才会执行Row lock (只锁住被选取的资料例) ，否则MySQL 将会执行Table Lock (将整个资料表单给锁住)。&nbsp;&nbsp;  <br> <br> <br> 举个例子:&nbsp;&nbsp;  <br> <br> 假设有个表单products ，里面有id 跟name 二个栏位，id 是主键。&nbsp;&nbsp;  <br> <br> 例1: (明确指定主键，并且有此笔资料，row lock)&nbsp;&nbsp;  <br> <br> SELECT * FROM products WHERE id=’3′ FOR UPDATE;&nbsp;&nbsp;  <br> <br> 例2: (明确指定主键，若查无此笔资料，无lock)&nbsp;&nbsp;  <br> <br> SELECT * FROM products WHERE id=’-1′ FOR UPDATE;&nbsp;&nbsp;  <br> <br> 例2: (无主键，table lock)&nbsp;&nbsp;  <br> <br> SELECT * FROM products WHERE name=’Mouse’ FOR UPDATE;&nbsp;&nbsp;  <br> <br> 例3: (主键不明确，table lock)&nbsp;&nbsp;  <br> <br> SELECT * FROM products WHERE id&lt;&gt;’3′ FOR UPDATE;&nbsp;&nbsp;  <br> <br> 例4: (主键不明确，table lock)&nbsp;&nbsp;  <br> <br> SELECT * FROM products WHERE id LIKE ’3′ FOR UPDATE;&nbsp;&nbsp;  <br> <br> 注1:&nbsp;&nbsp;  <br> FOR UPDATE 仅适用于InnoDB，且必须在交易区块(BEGIN/COMMIT)中才能生效</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2242272,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;084f360b-63cf-dd11-9e4d-001cf0cd104b&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/winner/" target="_blank"><img src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/u13496.jpg" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/winner/">Winner.Net(2007)</a><br>
+            <a href="http://home.cnblogs.com/u/winner/followees">关注 - 5</a><br>
+            <a href="http://home.cnblogs.com/u/winner/followers">粉丝 - 69</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;084f360b-63cf-dd11-9e4d-001cf0cd104b&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(2242272,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(2242272,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/winner/archive/2011/10/02/2198073.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/winner/archive/2011/10/02/2198073.html" title="发布于2011-10-02 17:57">型B2C电子商务网站组织架构分析</a><br><a href="http://www.cnblogs.com/winner/archive/2011/11/17/2252175.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/winner/archive/2011/11/17/2252175.html" title="发布于2011-11-17 09:51">linux 开启 mount</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2011-11-09 11:32</span> <a href="http://www.cnblogs.com/winner/">Winner.Net(2007)</a> 阅读(<span id="post_view_count">31756</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=2242272" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html#" onclick="AddToWz(2242272);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=17054,cb_entryId=2242272,cb_blogApp=currentBlogApp,cb_blogUserGuid='084f360b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2011/11/9 11:32:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://group.cnblogs.com/topic/75389.html" target="_blank">【活动】优达学城正式发布“无人驾驶车工程师”课程</a><br><a href="http://www.rongcloud.cn/live" target="_blank">【推荐】移动直播百强八成都在用融云即时通讯云</a><br><a href="http://www.gcpowertools.com.cn/products/componentone_studio_enterprise.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=C1&amp;utm_campaign=community" target="_blank">【推荐】别再闷头写代码！找对工具，事半功倍，全能开发工具包用起来</a><br><a href="http://netease.im/?&amp;hmsr=bky8&amp;from=bky8" target="_blank">【推荐】网易这群程序员1年撸了10万+IM开发者，一天让APP接入一个微信</a><br></div>
+<div id="opt_under_post"></div>
+<div id="ad_c1" class="c_ad_block"><a href="http://q.cnblogs.com/" target="_blank"><img width="300" height="250" src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/q-cnblogs-com-20160923.png" alt=""></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/555065/" target="_blank">万达调整架构第四次转型：成立网络科技集团</a><br> ·  <a href="http://news.cnblogs.com/n/555064/" target="_blank">美国国税局若认真追究 Facebook需补税50亿美元</a><br> ·  <a href="http://news.cnblogs.com/n/555063/" target="_blank">滴滴到底是一家什么样的公司</a><br> ·  <a href="http://news.cnblogs.com/n/555062/" target="_blank">2016胡润百富榜：首富还是王健林 雷军财富缩水30%</a><br> ·  <a href="http://news.cnblogs.com/n/555061/" target="_blank">神舟十一号拟10月17日发射 搭载2名航天员驻留30天</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="ad_c2" class="c_ad_block"><a href="https://www.jiguang.cn/devservice/?from=cnblogs01" target="_blank"><img width="468" height="60" src="./PHP与MYSQL事务处理 - Winner.Net(2007) - 博客园_files/24442-20161011141820868-1378717477.jpg" alt=""></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/553682/" target="_blank">陈皓：什么是工程师文化？</a><br> ·  <a href="http://kb.cnblogs.com/page/551422/" target="_blank">没那么难，谈CSS的设计模式</a><br> ·  <a href="http://kb.cnblogs.com/page/550625/" target="_blank">程序猿媳妇儿注意事项</a><br> ·  <a href="http://kb.cnblogs.com/page/540529/" target="_blank">可是姑娘，你为什么要编程呢？</a><br> ·  <a href="http://kb.cnblogs.com/page/549631/" target="_blank">知其所以然（以算法学习为例）</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news">
+ 
+
+
+<div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/winner/">Winner.Net(2007)</a><br>园龄：<a href="http://home.cnblogs.com/u/winner/" title="入园时间：2006-02-27">10年7个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/winner/followers/">69</a><br>关注：<a href="http://home.cnblogs.com/u/winner/followees/">5</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;084f360b-63cf-dd11-9e4d-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2011/10/01&#39;);return false;">&lt;</a></td><td align="center">2011年11月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2011/12/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td class="CalWeekendDay" align="center">5</td></tr><tr><td class="CalWeekendDay" align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center"><a href="http://www.cnblogs.com/winner/archive/2011/11/09.html"><u>9</u></a></td><td align="center">10</td><td align="center">11</td><td class="CalWeekendDay" align="center">12</td></tr><tr><td class="CalWeekendDay" align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center"><a href="http://www.cnblogs.com/winner/archive/2011/11/17.html"><u>17</u></a></td><td align="center">18</td><td class="CalWeekendDay" align="center">19</td></tr><tr><td class="CalWeekendDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td class="CalWeekendDay" align="center">26</td></tr><tr><td class="CalWeekendDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td></tr><tr><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td><td class="CalOtherMonthDay" align="center">10</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/winner/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/winner/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/winner/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/winner/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/winner/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/winner/archive/2011/11/17/2252181.html">1. centos 端口开放及关闭</a></li><li><a href="http://www.cnblogs.com/winner/archive/2011/11/17/2252177.html">2. Can't connect to MySQL server on 'ip' (13)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2011/11/17/2252180.html">3. CentOS 6.0 系统 LAMP(Apache+MySQL+PHP)安装步骤</a></li><li><a href="http://www.cnblogs.com/winner/archive/2011/11/17/2252175.html">4. linux 开启 mount</a></li><li><a href="http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html">5. PHP与MYSQL事务处理</a></li><li><a href="http://www.cnblogs.com/winner/archive/2011/10/02/2198073.html">6. 型B2C电子商务网站组织架构分析</a></li><li><a href="http://www.cnblogs.com/winner/archive/2010/05/09/1730925.html">7. 转 PHP _construct _destory _call _get _set等</a></li><li><a href="http://www.cnblogs.com/winner/archive/2009/08/26/1554287.html">8. eew</a></li><li><a href="http://www.cnblogs.com/winner/archive/2009/08/26/1554283.html">9. CSS+js 实现mouse移动单元格上全部显示</a></li><li><a href="http://www.cnblogs.com/winner/archive/2009/07/03/1516416.html">10. web2.0网站的性能优化方法 (转)</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(219)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/winner/category/49543.html">asp/.net(103)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/winner/category/49545.html">database(18)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/winner/category/80962.html">DocNet2.0(23)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/winner/category/49546.html">javascript(42)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/winner/category/52042.html">wap(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/winner/category/80960.html">WEB2.0(15)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/winner/category/80961.html">xml(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/winner/category/49888.html">系统大全(12)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(334)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/winner/archive/2011/11.html">2011年11月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/winner/archive/2011/10.html">2011年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/winner/archive/2010/05.html">2010年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/winner/archive/2009/08.html">2009年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/winner/archive/2009/07.html">2009年7月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/winner/archive/2009/06.html">2009年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/winner/archive/2009/05.html">2009年5月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/winner/archive/2009/04.html">2009年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/winner/archive/2009/03.html">2009年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/winner/archive/2009/02.html">2009年2月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/winner/archive/2009/01.html">2009年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/winner/archive/2008/12.html">2008年12月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/winner/archive/2008/11.html">2008年11月 (25)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/winner/archive/2008/10.html">2008年10月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/winner/archive/2008/09.html">2008年9月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/winner/archive/2008/08.html">2008年8月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/winner/archive/2008/07.html">2008年7月 (24)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/winner/archive/2008/06.html">2008年6月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/winner/archive/2008/05.html">2008年5月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/winner/archive/2008/03.html">2008年3月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/winner/archive/2008/02.html">2008年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/winner/archive/2008/01.html">2008年1月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/winner/archive/2007/12.html">2007年12月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="http://www.cnblogs.com/winner/archive/2007/09.html">2007年9月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="http://www.cnblogs.com/winner/archive/2007/08.html">2007年8月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="http://www.cnblogs.com/winner/archive/2007/07.html">2007年7月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="http://www.cnblogs.com/winner/archive/2007/06.html">2007年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="http://www.cnblogs.com/winner/archive/2007/05.html">2007年5月 (18)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_28" href="http://www.cnblogs.com/winner/archive/2007/04.html">2007年4月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_29" href="http://www.cnblogs.com/winner/archive/2007/03.html">2007年3月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_30" href="http://www.cnblogs.com/winner/archive/2007/02.html">2007年2月 (22)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_31" href="http://www.cnblogs.com/winner/archive/2007/01.html">2007年1月 (32)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_32" href="http://www.cnblogs.com/winner/archive/2006/12.html">2006年12月 (35)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_33" href="http://www.cnblogs.com/winner/archive/2006/08.html">2006年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_34" href="http://www.cnblogs.com/winner/archive/2006/07.html">2006年7月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_35" href="http://www.cnblogs.com/winner/archive/2006/06.html">2006年6月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_36" href="http://www.cnblogs.com/winner/archive/2006/05.html">2006年5月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_37" href="http://www.cnblogs.com/winner/archive/2006/04.html">2006年4月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_38" href="http://www.cnblogs.com/winner/archive/2006/03.html">2006年3月 (49)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_39" href="http://www.cnblogs.com/winner/archive/2006/02.html">2006年2月 (5)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleCategory">
+<h3 class="catListTitle">文章分类<span style="font-size:11px;font-weight:normal">(3)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/winner/category/49539.html">asp/.net(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="http://www.cnblogs.com/winner/category/81186.html">DataBase</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="http://www.cnblogs.com/winner/category/49542.html">javascript(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="http://www.cnblogs.com/winner/category/52267.html">wap</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_4" href="http://www.cnblogs.com/winner/category/81185.html">web2.0</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_5" href="http://www.cnblogs.com/winner/category/49541.html">xml</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">电子商务</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_3_Link_0" href="http://www.mfushi.com/" rel="nofollow" target="_blank">买服饰  麦服饰！在线时尚服饰直销网(mfushi.com 网罗时尚服饰 坐享购物乐趣)</a> </li>
+<li class="c_b_p_link_desc">买服饰  麦服饰！在线时尚服饰直销网  买服饰  麦服饰 时尚 服装 饰口 箱包 批发 直销 购物 品牌服饰 日韩饰品</li>
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/09/07/1286061.html#3174122">1. Re:JS正则表达式详解 转</a></li>
+        <li class="recent_comment_body">"^abc$": 就是要求以abc开头和以abc结尾的字符串，实际上是只有abc匹配 我觉得这是错的，abcabc也能匹配</li>
+        <li class="recent_comment_author">--Zempty</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/12/11/1353314.html#3069137">2. Re:property和attribute的区别</a></li>
+        <li class="recent_comment_body">谢谢楼主的分享，学习了。</li>
+        <li class="recent_comment_author">--codezyc</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743609.html#2951749">3. Re:WebService获取服务端硬件信息和客户端IP,MAC,浏览器信息，所在城市- </a></li>
+        <li class="recent_comment_body">获取Mac地址的这个方法只能在局域网工作哦，因为这个方法用的是ARP协议</li>
+        <li class="recent_comment_author">--Ronaldo.J.Wang</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/09/07/1286061.html#2924708">4. Re:JS正则表达式详解 转</a></li>
+        <li class="recent_comment_body">有个打错了  "ab{3,5}"  要求后面有 3到 5个b  ...你写的2</li>
+        <li class="recent_comment_author">--Aaronfay</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/01/06/1028146.html#2868760">5. Re:XSLT教程  比较全的</a></li>
+        <li class="recent_comment_body">写的很好啊啊。</li>
+        <li class="recent_comment_author">--规格严格-功夫到家</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2009/07/03/1516416.html#2859404">6. Re:web2.0网站的性能优化方法 (转)</a></li>
+        <li class="recent_comment_body">方法很有用</li>
+        <li class="recent_comment_author">--梦小野</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/07/21/826791.html#2858641">7. Re:asp.net 多子域名实现单点登录</a></li>
+        <li class="recent_comment_body">只要把domain设置一样就可以实现cookie的单点登陆了？ 还有别的要设置的吗 ？</li>
+        <li class="recent_comment_author">--Ganler1988</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2006/04/05/367643.html#2771338">8. Re:oa数据库设计</a></li>
+        <li class="recent_comment_body">受不了拼音简写了</li>
+        <li class="recent_comment_author">--builderman</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html#2649970">9. Re:ASP.NET(C#)获取客户端的网卡MAC代码</a></li>
+        <li class="recent_comment_body">真不懂，你们说可以用？/ 自己有没有测试过？？ ，根本 获取不到， 一直 执行这里 if (mac_src == "0"){下面的 ，获取mac的方法，怎么会执行···················......</li>
+        <li class="recent_comment_author">--weishao.NET</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html#2649966">10. Re:ASP.NET(C#)获取客户端的网卡MAC代码</a></li>
+        <li class="recent_comment_body">涉及到安全问题</li>
+        <li class="recent_comment_author">--weishao.NET</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html#2649965">11. Re:ASP.NET(C#)获取客户端的网卡MAC代码</a></li>
+        <li class="recent_comment_body">想要获取客户端的mac ，很难实现</li>
+        <li class="recent_comment_author">--weishao.NET</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html#2649964">12. Re:ASP.NET(C#)获取客户端的网卡MAC代码</a></li>
+        <li class="recent_comment_body">楼主这个方法，  只能获取到 客户端的  外网ip ;一直 执行这里 <br> if (mac_src == "0")<br>            {</li>
+        <li class="recent_comment_author">--weishao.NET</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/12/14/995026.html#2626329">13. Re:Lc.exe 已退出，代码 -1 </a></li>
+        <li class="recent_comment_body">嗯，不错，就是这样就解决了</li>
+        <li class="recent_comment_author">--just like you</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/11/08/1329449.html#2524445">14. Re:EXTJS制作的嵌套表格实例(点击一行，展开下面的子表)</a></li>
+        <li class="recent_comment_body">请问你这个东西怎么跑起来？能不能风向一下 该效果的完整demo 非常感谢！</li>
+        <li class="recent_comment_author">--Michael.Wang</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2006/12/15/593028.html#2485334">15. Re:etElementByID getElementsByName  getElementsByTagName的区别和总结 +js+Mxl+xmlhttp</a></li>
+        <li class="recent_comment_body">楼主威武</li>
+        <li class="recent_comment_author">--mingsmall</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/09/07/1286061.html#2466480">16. Re:JS正则表达式详解 转</a></li>
+        <li class="recent_comment_body">有一個疑問:<br>"^abc$": 就是要求以abc开头和以abc结尾的字符串，实际上是只有abc匹配 <br>“abcaaaaabc”能不能說是以“abc”開頭和結尾？</li>
+        <li class="recent_comment_author">--Jeacathy</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/12/11/1353314.html#2457465">17. Re:property和attribute的区别</a></li>
+        <li class="recent_comment_body">总结的那几点很明朗</li>
+        <li class="recent_comment_author">--luzqcky</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/01/12/618563.html#2449795">18. Re:XmlHttp实现无刷新三联动ListBox</a></li>
+        <li class="recent_comment_body">你的代码什么意思啊，都不注释的，看不懂啊，麻烦你注释一下好吗，谢谢</li>
+        <li class="recent_comment_author">--stefanhobbs</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/11/08/1329449.html#2358406">19. Re:EXTJS制作的嵌套表格实例(点击一行，展开下面的子表)</a></li>
+        <li class="recent_comment_body">js用到一些了div，是不是可以将这部分的也贴出来。</li>
+        <li class="recent_comment_author">--ghycn</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/11/15/1334077.html#2348848">20. Re:(转)setTimeout延时0毫秒的作用</a></li>
+        <li class="recent_comment_body">很不错</li>
+        <li class="recent_comment_author">--静妮儿</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html#2323153">21. Re:ASP.NET(C#)获取客户端的网卡MAC代码</a></li>
+        <li class="recent_comment_body">@海格力斯你的这个方法我试过了，只能获取服务器端的，我想要获取客户端的怎么办呢？...</li>
+        <li class="recent_comment_author">--轩辕公子</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html#2323152">22. Re:ASP.NET(C#)获取客户端的网卡MAC代码</a></li>
+        <li class="recent_comment_body">楼主，你的博文里降的方法只能获取局域网内的mac地址，有没有通用的呀</li>
+        <li class="recent_comment_author">--轩辕公子</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/01/28/632771.html#2258822">23. Re:学习笔记</a></li>
+        <li class="recent_comment_body">好东西，博主辛苦~~~</li>
+        <li class="recent_comment_author">--似水若冰</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/01/28/632771.html#2229888">24. Re:学习笔记</a></li>
+        <li class="recent_comment_body">顶一下</li>
+        <li class="recent_comment_author">--游龙流</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/01/29/632973.html#2229884">25. Re:IEnumerable</a></li>
+        <li class="recent_comment_body">大哥写的太复杂了，不清晰啊，</li>
+        <li class="recent_comment_author">--游龙流</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/07/21/826775.html#2219319">26. Re:ASP.NET单点登录(代码) </a></li>
+        <li class="recent_comment_body">抛开单点登录的概念不说，下面这段代码TimeSpan SessTimeOut = new TimeSpan(0, 0, System.Web.HttpContext.Current.Session.T......</li>
+        <li class="recent_comment_author">--PowerCoder</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2006/03/23/357245.html#2181790">27. Re:crystal report (asp调用水晶报表实例)</a></li>
+        <li class="recent_comment_body">楼主牛人，是否有打算把xForm转为NET</li>
+        <li class="recent_comment_author">--极度IT</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237641.html#2164951">28. Re:Ext中的get、getDom、getCmp、getBody、getDoc的区别</a></li>
+        <li class="recent_comment_body">document.getElementById('id') 和 Ext.getDom('id')结果应该一样吧？</li>
+        <li class="recent_comment_author">--杨利军</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html#2152779">29. Re:ASP.NET(C#)获取客户端的网卡MAC代码</a></li>
+        <li class="recent_comment_body">用此方法也可以实现，代码如下： 在 引用 里面添加对C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727目录下System.Management.dll的引......</li>
+        <li class="recent_comment_author">--海格力斯</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/08/28/873498.html#2121219">30. Re:javaScript中URL编码转换,escape() encodeURI() encodeURIComponent</a></li>
+        <li class="recent_comment_body">good thing...</li>
+        <li class="recent_comment_author">--刘元辉</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2006/04/05/367643.html#2072555">31. Re:oa数据库设计</a></li>
+        <li class="recent_comment_body">大哥 OA数据库 里面是不是有权限表 为什么没有写</li>
+        <li class="recent_comment_author">--修释</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/12/14/995026.html#2068580">32. Re:Lc.exe 已退出，代码 -1 </a></li>
+        <li class="recent_comment_body">谢谢，问题已经解决。</li>
+        <li class="recent_comment_author">--BreezeWoo</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/07/14/1242352.html#1993005">33. Re:Ext中apply及applyIf方法的应用</a></li>
+        <li class="recent_comment_body">alert('Hello World!');...</li>
+        <li class="recent_comment_author">--zhangsir199</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/03/25/1120757.html#1962800">34. Re:转:C#[Serializable]在C#中的作用-NET 中的对象序列化</a></li>
+        <li class="recent_comment_body">看着累.</li>
+        <li class="recent_comment_author">--随智阔</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/04/30/732994.html#1938667">35. Re:也说new </a></li>
+        <li class="recent_comment_body">此时的i不能直接使用:1&gt;这种情况会出现编译报错:int i;Console.WriteLine(i);2&gt;这种情况则不会:int i;i = 123;...</li>
+        <li class="recent_comment_author">--kidyluo</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2007/04/30/732994.html#1938640">36. Re:也说new </a></li>
+        <li class="recent_comment_body">如果int i是一个变量定义，那么，int i只是声明了一个局部变量，此时的i不能直接使用，必须首先赋值（如果未赋值就使用，会得到一个编译错误）。而int i = new int()则对i进行了一个初......</li>
+        <li class="recent_comment_author">--kidyluo</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/11/04/1326660.html#1929917">37. Re:ajaxpro实现前台后台传数据 </a></li>
+        <li class="recent_comment_body">Q:有个问题请较： [AjaxPro.AjaxMethod] public DataSet GetDataA(int Pageindex, int Pagesize) ......</li>
+        <li class="recent_comment_author">--签约爱人</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237607.html#1886853">38. Re:extjs简单菜单应用</a></li>
+        <li class="recent_comment_body">=6926065370无限级菜单，采用json数据传递，ajax访问后台数据，tab展示内容页，可定制门户页。日历及天气信息...</li>
+        <li class="recent_comment_author">--acer3680</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/03/25/1120757.html#1837503">39. Re:转:C#[Serializable]在C#中的作用-NET 中的对象序列化</a></li>
+        <li class="recent_comment_body">不错，还是没太理解</li>
+        <li class="recent_comment_author">--starlet</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/winner/archive/2008/12/11/1353314.html#1793265">40. Re:property和attribute的区别</a></li>
+        <li class="recent_comment_body">多谢了!</li>
+        <li class="recent_comment_author">--佬唐</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/winner/archive/2007/08/28/873498.html">1. javaScript中URL编码转换,escape() encodeURI() encodeURIComponent(43359)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/12/15/593028.html">2. etElementByID getElementsByName  getElementsByTagName的区别和总结 +js+Mxl+xmlhttp(32968)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2011/11/09/2242272.html">3. PHP与MYSQL事务处理(31755)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/09/07/1286061.html">4. JS正则表达式详解 转(20023)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/12/14/995026.html">5. Lc.exe 已退出，代码 -1 (17246)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/01/17/1042583.html">6. 用javascript 禁止右键,禁止复制,禁止粘贴(13444)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/12/11/1353314.html">7. property和attribute的区别(12885)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/03/25/1120757.html">8. 转:C#[Serializable]在C#中的作用-NET 中的对象序列化(11227)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/01/06/1028146.html">9. XSLT教程  比较全的(10866)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/21/1247655.html">10. Ext   FormPanel布局   （一行显示两对控件元素）(9688)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2011/11/17/2252181.html">11. centos 端口开放及关闭(9463)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/05/25/408666.html">12. 公司股权转让协议(9295)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/04/05/367643.html">13. oa数据库设计(8411)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2009/02/03/1383050.html">14. JS 图表工具可以结合extjs实现(8129)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/06/25/1229430.html">15. JS//键盘KEYDOWN事件(7309)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/08/22/1273770.html">16.  Ext2.0的通用grid包括（增、删、改、查、导出excel）(7258)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237607.html">17. extjs简单菜单应用(7071)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/15/1334077.html">18. (转)setTimeout延时0毫秒的作用(6932)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743609.html">19. WebService获取服务端硬件信息和客户端IP,MAC,浏览器信息，所在城市- (6471)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/07/21/826775.html">20. ASP.NET单点登录(代码) (6168)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/02/26/657246.html">21. 大型软件公司.net面试题！一定得看（附答案）(5848)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/08/1329449.html">22. EXTJS制作的嵌套表格实例(点击一行，展开下面的子表)(5659)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/15/1243502.html">23. EXT 中的Grid实例(5593)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/01/28/632771.html">24. 学习笔记(5262)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/03/23/357109.html">25. miniasp (yes encode)(5055)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/19/1336581.html">26. CSS样式定义(4952)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/01/09/1032651.html">27. SqlConnection,SqlCommand,SqldataReader的用法总结:(4939)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/30/1344348.html">28. js中的math对象(4873)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/08/1329450.html">29. EXTJS实现的WEBQQ可以传文件了哈(4671)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/08/31/1280651.html">30. 《ExtJS2.0实用简明教程》之与服务器交互  extjs  Ext.Ajax.request({}) params:(4604)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/09/06/884192.html">31. 页面正在载入(js代码)(4385)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/14/1242591.html">32. 转 C#生成JSON数据格式的函数(4158)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/04/05/367659.html">33. xForm应用开发手册(4100)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/01/04/611336.html">34. 好看的可输入下拉框(3870)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/03/07/344644.html">35. 怎样防止IE工具对window.open的拦截(3650)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/03/1234888.html">36. xtype:"combo"  动态加载(3601)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/09/1239039.html">37. Ext.data.Store(3492)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237641.html">38. Ext中的get、getDom、getCmp、getBody、getDoc的区别(3296)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/03/23/357245.html">39. crystal report (asp调用水晶报表实例)(3044)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/03/01/340223.html">40. web开发(3020)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/winner/archive/2006/12/15/593028.html">1. etElementByID getElementsByName  getElementsByTagName的区别和总结 +js+Mxl+xmlhttp(11)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743609.html">2. WebService获取服务端硬件信息和客户端IP,MAC,浏览器信息，所在城市- (9)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743605.html">3. ASP.NET(C#)获取客户端的网卡MAC代码(9)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/03/25/1120757.html">4. 转:C#[Serializable]在C#中的作用-NET 中的对象序列化(6)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/08/28/873498.html">5. javaScript中URL编码转换,escape() encodeURI() encodeURIComponent(6)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/03/23/357245.html">6. crystal report (asp调用水晶报表实例)(5)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/01/17/1042583.html">7. 用javascript 禁止右键,禁止复制,禁止粘贴(4)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/08/22/1273770.html">8.  Ext2.0的通用grid包括（增、删、改、查、导出excel）(4)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237607.html">9. extjs简单菜单应用(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/09/07/1286061.html">10. JS正则表达式详解 转(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/01/06/1028146.html">11. XSLT教程  比较全的(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/07/21/826775.html">12. ASP.NET单点登录(代码) (3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/01/28/632771.html">13. 学习笔记(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/06/04/417242.html">14. Sql Server安装挂起的解决办法(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/04/05/367643.html">15. oa数据库设计(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/04/30/732994.html">16. 也说new (3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/02/02/638004.html">17. 正确地做事与做正确的事同样重要----一位软件工程师的6年总结 转载(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/12/11/1353314.html">18. property和attribute的区别(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/12/16/594133.html">19. css里可以加表达式   :expression(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/12/16/594074.html">20. 泛微OA中的显示ajax技术,  CreateHtml 创建调用asp文件无刷新(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/01/09/615882.html">21. 建立Microsoft SQL Server 2005数据仓库 (2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/03/21/683247.html">22. VS2003.VS2005快捷键大全 (差别不大)(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743615.html">23. 常用的一些正则表达式 (2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/03/23/356718.html">24. asp发消息并代多个附件上传(多对多关系)(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/12/14/995026.html">25. Lc.exe 已退出，代码 -1 (2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/02/05/640139.html">26. new 和 override 的区别(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/12/14/591913.html">27. 用Ajax读取XML格式的数据(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/12/1331782.html">28. IE、Firefox兼容Enter代替Tab的Javascript(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/08/1329450.html">29. EXTJS实现的WEBQQ可以传文件了哈(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/08/1329449.html">30. EXTJS制作的嵌套表格实例(点击一行，展开下面的子表)(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/21/1247655.html">31. Ext   FormPanel布局   （一行显示两对控件元素）(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/17/1245548.html">32. 生成用户界面(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/14/1242352.html">33. Ext中apply及applyIf方法的应用(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237641.html">34. Ext中的get、getDom、getCmp、getBody、getDoc的区别(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/04/1235260.html">35. ExtJS入门之三 查询(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/08/02/1258965.html">36. Ext 动态添加grid 列数(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/04/1326660.html">37. ajaxpro实现前台后台传数据 (1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/03/1325874.html">38. C#试题(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/10/15/1312024.html">39. c#遍历HashTable(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/08/18/480861.html">40. asp   excel   sql    关系大总结(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/winner/archive/2007/08/28/873498.html">1. javaScript中URL编码转换,escape() encodeURI() encodeURIComponent(5)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/03/25/1120757.html">2. 转:C#[Serializable]在C#中的作用-NET 中的对象序列化(5)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/12/11/1353314.html">3. property和attribute的区别(4)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237641.html">4. Ext中的get、getDom、getCmp、getBody、getDoc的区别(3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/12/14/995026.html">5. Lc.exe 已退出，代码 -1 (3)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/09/07/1286061.html">6. JS正则表达式详解 转(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/19/1336581.html">7. CSS样式定义(2)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/15/1334077.html">8. (转)setTimeout延时0毫秒的作用(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/08/1329449.html">9. EXTJS制作的嵌套表格实例(点击一行，展开下面的子表)(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/11/03/1325858.html">10. ASP.net输出JS脚步的类(无AJAX框架)(原作者发布地址http://blog.csdn.net/zhoufoxcn/archive/2008/04/21/2312440.aspx) (1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/04/05/367643.html">11. oa数据库设计(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/05/12/743609.html">12. WebService获取服务端硬件信息和客户端IP,MAC,浏览器信息，所在城市- (1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/01/29/633293.html">13. 存储过程与函数的区别(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/01/09/615906.html">14.  MDX 查询的基本语法(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/12/29/1364272.html">15. 转Vtype扩展(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/08/31/1280651.html">16. 《ExtJS2.0实用简明教程》之与服务器交互  extjs  Ext.Ajax.request({}) params:(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/21/1247655.html">17. Ext   FormPanel布局   （一行显示两对控件元素）(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/07/1237607.html">18. extjs简单菜单应用(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2008/07/04/1235260.html">19. ExtJS入门之三 查询(1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/07/21/826251.html">20. petshop4.0设计说明 (1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2007/05/28/763056.html">21. 怎样用C#实现完整文档打印功能 (1)</a></li><li><a href="http://www.cnblogs.com/winner/archive/2006/12/13/591243.html">22.  js，asp   实现读取远程xml  (1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2016 Winner.Net(2007)
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

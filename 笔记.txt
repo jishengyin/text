@@ -1,0 +1,387 @@
+//查询按照in里面的顺序查询
+sql: select * from table where id IN (3,6,9,1,2,5,8,7) order by field(id,3,6,9,1,2,5,8,7); 
+
+//直接传递form表单内的数据
+$('#form01').serializeArray()
+
+
+//判断是否是AJAX请求
+isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+
+//用编辑器写的转换HTML
+<script>
+    $(function(){$('#aaaa').each(function(){$(this).html($(this).text())})})
+</script>
+
+html_entity_decode($v['content'],ENT_QUOTES,'UTF-8');
+
+smarty 小数后2位
+|string_format:'%.2f'
+
+//页面显示几个字符
+|cut_str:17
+
+计算处理字符串格式的计算公式
+eval("return $ceilorfloor;");
+
+正则匹配
+if(!preg_match("/^1[34578]\d{9}$/", $phone)){
+   redirect ( '请正确填写手机号码！', $baseurl);
+}
+
+if(!preg_match("/^[0-9a-z_][_.0-9a-z-]{0,32}@([0-9a-z][0-9a-z-]{0,32}\.){1,4}[a-z]{2,4}$/i", $email)){
+   redirect ( '请正确填写联系邮箱！', $baseurl);
+}
+
+
+stripslashes() 函数删除：反斜杠及由 addslashes() 函数添加的反斜杠。
+
+
+<a href=”javascript: document.myform.submit();”>Submit Me</a>
+
+js 使用正则
+var re=/^[1][34578][0-9]{9}$/;
+var tel = $("#mobile_phone").val();
+var reg=new RegExp(re);
+if(reg.test(tel)){  
+    return true
+}else{
+    return false
+}
+
+smarty 时间戳转换为日期
+{:$v.time|date_format:'%Y-%m-%d %H:%M:%S':}
+
+
+input 框内提示信息
+<input type="text" placeholder='提示信息' value="" />
+下面一行放在input内
+value="你的提示文字" onFocus="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999999"
+
+
+图片上传必须写在form里面
+enctype="multipart/form- data"
+
+
+js里面弹框（确定 取消）
+if(confirm('确定要更新吗？')){
+    return true;
+}else{
+    return false;
+}
+
+js获取input自定义属性
+getAttribute()
+js更改input自定义属性
+setAttribute('属性名','值');
+js转换成数字
+parseFloat()
+js保留2位小数
+.toFixed(2)
+
+//获取某一年某一月的日有几天
+public function calDays(){
+$num = cal_days_in_month(CAL_GREGORIAN, $_GET['y'], $_GET['n']); // 31
+echo $num;
+}
+
+//进行安全的SQL
+<?php
+function check_input($value)
+{
+// 去除斜杠
+if (get_magic_quotes_gpc())
+  {
+  $value = stripslashes($value);
+  }
+// 如果不是数字则加引号
+if (!is_numeric($value))
+  {
+  $value = "'" . mysql_real_escape_string($value) . "'";
+  }
+return $value;
+}
+
+$con = mysql_connect("localhost", "hello", "321");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+// 进行安全的 SQL
+$user = check_input($_POST['user']);
+$pwd = check_input($_POST['pwd']);
+$sql = "SELECT * FROM users WHERE
+user=$user AND password=$pwd";
+
+mysql_query($sql);
+
+mysql_close($con);
+?>
+
+
+
+%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\phpStudy\php55n;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32;C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Scripts
+
+C:\Program Files (x86)\SSH Communications Security\SSH Secure Shell;C:\Users\Administrator\AppData\Roaming\Composer\vendor\bin;C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32;C:\Users\Administrator\AppData\Local\Programs\Python\Python36-32\Scripts
+
+//apache 配置
+DocumentRoot  "D:\WWW"
+<Directory />
+    Options +Indexes +FollowSymLinks +ExecCGI
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+    Require all granted
+</Directory>
+
+
+
+apache 修改上传大小
+第一步：修改在php5下POST文件大小的限制
+ 
+1.编修php.ini
+ 
+找到：max_execution_time = 30 ，这个是每个脚本运行的最长时间，单位秒，修改为：
+max_execution_time = 150
+ 
+找到：max_input_time = 60，这是每个脚本可以消耗的时间，单位也是秒，修改为：
+max_input_time = 300
+ 
+找到：memory_limit = 128M，这个是脚本运行最大消耗的内存，根据你的需求更改数值，这里修改为：
+memory_limit = 256M
+ 
+找到：post_max_size = 8M，表单提交最大数据为 8M，此项不是限制上传单个文件的大小,而是针对整个表单的提交数据进行限制的。限制范围包括表单提交的所有内容.例如:发表贴子时,贴子标题,内容,附件等…这里修改为：
+post_max_size = 20M
+ 
+找到：upload_max_filesize = 2M ，上载文件的最大许可大小 ，修改为：
+upload_max_filesize = 10M
+ 
+第二步： Apache环境中的档案上传大小控制
+修改位于Apahce目录下的httpd.conf
+添加下面内容
+LimitRequestBody 10485760    
+即10M=10*1024*1024，有的文章中提到应改为 600000000
+ 
+重新启动apache，就可以在设置里看到你要的大小
+ 
+Linux 环境下的修改方法 ================================================================
+修改etc/php.ini
+找到 File Uploadsh区域修改以下几个参数： file_uploads = on ;是否允许通过HTTP上传文件的开关。默认为ON即是开 upload_tmp_dir ;文件上传至服务器上存储临时文件的地方，如果没指定就会用系统默认的临时文件夹(moodle可以不改)
+upload_max_filesize = 8m ;允许上传文件大小的最大值.
+找到 Data Handling区域，修改 post_max_size = 8m ;指通过表单POST给PHP的所能接收的最大值，包括表单里的所有值。默认为8M
+设上述四个参数后，上传小于8M的文件一般不成问题。但如果上传大于8M的文件，只还得设置以下参数：
+在Resource Limits 区域: max_execution_time = 600 ;每个PHP页面运行的最大时间值(秒)，默认30秒 max_input_time = 600 ;每个PHP页面接收数据所需的最大时间，默认60秒 memory_limit = 8m ;每个PHP页面所吃掉的最大内存，默认8M
+
+
+
+图片预览功能
+ <body>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td height="101" align="center">
+                        <div id="localImag" style="border: 1px solid red;">
+                             <img id="preview" src="" width="100" height="100" style="display: block;border: 1px solid blue;" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="padding-top:10px;">
+                    <form method="get" action="xznetwork" name="textfile">
+                       <input type="file" name="file" id="doc" multiple="multiple" style="width:150px;" onchange="javascript:setImagePreview();">
+</form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+JS上传图片本地实时预览缩略图
+2
+JS代码
+ <script type="text/javascript">
+//下面用于图片上传预览功能
+function setImagePreview(avalue) {
+//input
+    var docObj = document.getElementById("doc");
+//img
+    var imgObjPreview = document.getElementById("preview");
+    //div
+    var divs = document.getElementById("localImag");
+    if (docObj.files && docObj.files[0]) {
+        //火狐下，直接设img属性
+        imgObjPreview.style.display = 'block';
+        imgObjPreview.style.width = '100px';
+        imgObjPreview.style.height = '100px';
+        //imgObjPreview.src = docObj.files[0].getAsDataURL();
+        //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+       imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+    } else {
+        //IE下，使用滤镜
+        docObj.select();
+        var imgSrc = document.selection.createRange().text;
+        var localImagId = document.getElementById("localImag");
+        //必须设置初始大小
+        localImagId.style.width = "100px";
+        localImagId.style.height = "100px";
+        //图片异常的捕捉，防止用户修改后缀来伪造图片
+        try {
+            localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+            localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+        } catch(e) {
+            alert("您上传的图片格式不正确，请重新选择!");
+            return false;
+        }
+        imgObjPreview.style.display = 'none';
+        document.selection.empty();
+    }
+    return true;
+}
+</script>
+
+
+
+
+
+
+
+
+事务
+
+SET AUTOCOMMIT=0;
+
+BEGIN WORK;
+
+SELECT quantity FROM products WHERE id=3 FOR UPDATE;
+此时 products 数据中 id=3 的数据被锁住(注3)，其它事务必须等待此次事务提交后才能执行 SELECT * FROM products WHERE id=3 FOR UPDATE (注2)如此可以确保 quantity 在别的事务读到的数字是正确的。
+
+
+UPDATE products SET quantity = '1' WHERE id=3 ;
+
+COMMIT WORK;
+
+提交(Commit)写入数据库，products 解锁。
+
+注1：BEGIN/COMMIT 为事务的起始及结束点，可使用二个以上的MySQL Command 视窗来交互观察锁定的状况。
+
+注2：在事务进行当中，只有SELECT … FOR UPDATE 或LOCK IN SHARE MODE 同一笔数据时会等待其它事务结束后才执行，一般SELECT … 则不受此影响。
+
+注3：由于InnoDB 预设为Row-level Lock，数据列的锁定可参考这篇。
+
+注4：InnoDB 表单尽量不要使用LOCK TABLES 指令，若情非得已要使用，请先看官方对于InnoDB 使用LOCK TABLES 的说明，以免造成系统经常发生死锁。
+
+
+
+
+
+
+
+
+
+
+$url="http://127.0.0.1/xgj/source/spss/index.php/Furnish/getQuote";
+$ch=curl_init();
+$timeout=5;
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);
+curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
+curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);
+$data=curl_exec($ch);
+curl_close($ch);
+echo $data;
+exit;
+         
+
+.htaccess文件
+官方默认的 .htaccess文件
+<IfModule mod_rewrite.c>
+ Options +FollowSymlinks -Multiviews
+ RewriteEngine On
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>
+
+如果用的phpstudy，规则如下:
+<IfModule mod_rewrite.c> 
+Options +FollowSymlinks -Multiviews
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*)$ index.php [L,E=PATH_INFO:$1] 
+</IfModule>
+
+如果用的Nginx，可以在Nginx.conf中添加:
+location / {
+    if(!-e $request_filename){
+        rewrite ^(.*)$ /index.php?s=/$1 last;
+        break;
+    }
+}
+
+如果你使用的apache版本使用上面的方式无法正常隐藏index.php，可以尝试使用下面的方式配置.htaccess文件
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks -Multiviews
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?/$1 [QSA,PT,L]
+</IfModule>     
+
+
+
+
+
+
+
+
+
+
+
+redis
+thinkphp使用
+1. config配置文件中添加  
+'DATA_CACHE_PREFIX' => 'Redis_',//缓存前缀
+'DATA_CACHE_TYPE'=>'Redis',//默认动态缓存为Redis
+'REDIS_RW_SEPARATE' => true, //Redis读写分离 true 开启
+'REDIS_HOST'=>'127.0.0.1', //redis服务器ip，多台用逗号隔开；读写分离开启时，第一台负责写，其它[随机]负责读；
+'REDIS_PORT'=>'6379',//端口号
+'REDIS_TIMEOUT'=>'300',//超时时间
+'REDIS_PERSISTENT'=>false,//是否长连接 false=短连接
+'REDIS_AUTH'=>'',//AUTH认证密码
+
+2.控制器
+$redis = new \Redis();
+$redis->connect('127.0.0.1',6379);
+$redis->set('test','hello world!');
+echo $redis->get("test");
+
+
+
+
+php结合redis实现高并发下的抢购、秒杀功能的实例
+
+redis命令
+rpush 在列表最后插入一列(库存多少就存几列)
+llen 查看列表数量
+lpop 命令用于移除并返回列表的第一个元素。
+
+1.先把商品数量存入redis
+$store=1000;
+$redis=new Redis();
+$result=$redis->connect('127.0.0.1',6379);
+$res=$redis->llen('goods_store');
+$count=$store-$res;
+for($i=0;$i<$count;$i++){
+    $redis->rpush('goods_store',1);
+}
+
+
+2.下单前判断redis队列库存量
+$redis=new Redis();
+$result=$redis->connect('127.0.0.1',6379);
+$count=$redis->lpop('goods_store');
+if(!$count){
+    echo '库存不足';
+}

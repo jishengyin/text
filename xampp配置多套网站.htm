@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><script src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/analytics.js" async=""></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>【转】XAMPP中配置多个网站 - kwishly - 博客园</title>
+<link type="text/css" rel="stylesheet" href="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-LessIsMore.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/kwishly/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/kwishly/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/kwishly/wlwmanifest.xml">
+<script src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/gpt.js" type="text/javascript" async=""></script><script src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'kwishly', cb_enable_mathjax=false;</script>
+<script src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script>
+<script src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_59.js" type="text/javascript" async=""></script><script src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/osd.js" type="text/javascript"></script></head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/kwishly/">思维地</a></div>
+<div class="subtitle">kwishly</div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/kwishly/">首页</a></li>
+<li id="nav_q"><a class="menu" href="http://q.cnblogs.com/">博问</a></li>
+<li id="nav_ing"><a class="menu" href="http://home.cnblogs.com/ing/">闪存</a></li>
+<li id="nav_newpost"><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="MyLinks1_ContactLink" class="menu" rel="nofollow" href="http://space.cnblogs.com/msg/send/kwishly">联系</a></li>
+<li id="nav_rss"><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/kwishly/rss">订阅</a>
+<!--<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/kwishly/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			
+<!--done-->
+随笔-48&nbsp;
+文章-1&nbsp;
+评论-9&nbsp;
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/kwishly/archive/2012/02/27/2370163.html">【转】XAMPP中配置多个网站</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><div><div id="blog_text"><p><strong>XAMPP虚拟主机配置，多域名绑定访问本地站点<br><br></strong>XAMPP有时候你需要一些顶级域名访问方式来访问你本地的项目也就是虚拟主机配置，这时候就需要配置虚拟主机，给你的目录绑定一个域名，实现多域名绑定访问。<br><br>在Mac
+  下一直使用 MAMP 搭建本地 php 环境，因为其强大的组合配置以及方便的 UI 操作。因为公司的电脑是 Windows的，有时候需要搭建
+  php 环境来调试一些小东西方便自己工作，因为只是小应用，所以自己搭建本地的 WAMP 环境就没有必要了，网上的  
+WAMP环境集成包还是很多的，什么 PHPNow 啊，WampServer 啊，PHPStudy 啊，AppServ  
+啊，EasyPHP啊之类的我都没用过，以及我之前一直在使用的 UniServer，琳琅满目啊，看得我眼花缭乱。之所以后来不用  
+UniServer的原因其实我也不知道， UniServer 很强大，值得推荐一下，但是后来我又转用了 XAMPP  
+，因为它也很强大，并且文件包达 100MB还多，当然你可以下载 Lite 版本，但是文件大小都比 UniServer  
+大出好几倍，可能就是因为它的大，后来我才转用了 XAMPP。<br><br>有时候你需要一些顶级域名访问方式来访问你本地的项目文件而不是目录方式访问，这时候就需要配置虚拟主机，给你的目录绑定一个域名（本地的话可以通过修改 hosts 文件随便绑定什么域名比如 <a href="http://www.a.com/" target="_blank"><span style="color: #336699">www.a.com</span></a> 或者 localdemo）。<br>现在假定你有两个目录，一个存在于 /xampp/htdocs/a，另一个存在于 /xampp/htdocs/b 。<br>现在你想要在本地测试的时候访问 <a href="http://www.a.com/" target="_blank"><span style="color: #336699">www.a.com</span></a> 对应的目录是 /xampp/htdocs/a ,访问 <a href="http://www.b.com/" target="_blank"><span style="color: #336699">www.b.com</span></a> 对应的目录是 /xampp/htdocs/b 。<br>懂得 Apache配置的其实就可以绕开了，因为 XAMPP 无非就是集成了 APache 之类的环境集成包，实现多域名也就是通过配置 Apache 实现的。<br><br>当
+ 
+然网上搜索到的方法很多，但是网上的信息都是转载来转载去的，有的方法我怀疑是否验证过是否正确都不知道。以下的方法是我亲测的，如果你按照我的配置还是
+ 无法实现本地多域名调试的话，可能是因为你的 XAMPP  
+的版本和我的不一致造成的。你可以在下面评论告知我，我会给你一一解答。以下配置针对的是XAMPP Windows 1.7.1 版本。<br><br>1、首先修改C盘WINDOWS\system32\drivers\etc目录下的 hosts 文件，用记事本打开，加入：</p> <p>（是在文件的未尾加入）<br>127.0.0.1 <a href="http://www.a.com/" target="_blank"><span style="color: #336699">www.a.com</span></a><br>127.0.0.1 <a href="http://www.b.com/" target="_blank"><span style="color: #336699">www.b.com</span></a><br><br>2、打开xampp\apache\conf\httpd.conf文件，搜索 “Include conf/extra/httpd-vhosts.conf”，确保前面没有 # 注释符，也就是确保引入了 vhosts 虚拟主机配置文件。<br><br>开启了httpd-vhosts.conf，默认的httpd.conf默认配置失效（确保 httpd-vhosts.conf 文件里也开启了虚拟主机配置，见第3条），访问此IP的域名将全部指向 vhosts.conf 中的<strong>第一个虚拟主机</strong>。（注意是第一个，详见第4）<br><br>3、在虚拟主机设置文件xampp\apache\conf\extra\httpd-vhosts.conf里设置：<br>取消 NameVirtualHost *:80 前面的 ##，这样就启用了 vhosts.conf ，默认的httpd.conf默认配置失效。虚拟主机配置将只设置在 httpd-vhosts.conf 里。<br>&lt;VirtualHost *:80&gt;<br>DocumentRoot /xampp/htdocs/a<br>ServerName <a href="http://www.a.com/" target="_blank"><span style="color: #336699">www.a.com</span></a><br>&lt;/VirtualHost&gt;<br><br>&lt;VirtualHost *:80&gt;<br>DocumentRoot /xampp/htdocs/b<br>ServerName <a href="http://www.b.com/" target="_blank"><span style="color: #336699">www.b.com</span></a><br>&lt;/VirtualHost&gt;<br><br>4、
+ 设置完了第3条之后，你会发现访问 localhost直接指向到设置的 a 那个路径去了，这个问题在第2条有讲。也就是开启了  
+vhosts后，默认的 httpd 的配置就会失效了，默认的访问就指向到 vhosts 里的第一条设置去了。这时候你要把  
+localhost的目录配置给设置回来。<br>&lt;VirtualHost *:80&gt;<br>DocumentRoot /xampp/htdocs/<br>ServerName localhost<br>&lt;/VirtualHost&gt;<br><br>至此，XAMPP 的虚拟主机设置完毕，现在 访问 localhost 还是原来的 XAMPP 的帮助指南，访问 <a href="http://www.a.com/" target="_blank"><span style="color: #336699">www.a.com</span></a> 将指向到绑定的 a 目录，访问 <a href="http://www.b.com/" target="_blank"><span style="color: #336699">www.b.com</span></a> 将指向到绑定的 b 目录。<br><br>--------------------------------------------------------------------------------<br><br>实例参考：<br>XAMPP添加VirtualHost以支持多个站点<br>在c:\xampp\apache\conf\extra\httpd-vhosts.conf文件中添加如下内容：<br><br>NameVirtualHost *:80<br><br>&lt;VirtualHost *:80&gt;<br>DocumentRoot "E:/php/wordpress"<br>ServerName wordpress<br>&lt;/VirtualHost&gt;<br></p> <p>（这一段必须加入，不然无法访问）<br>&lt;Directory "E:/php/wordpress"&gt;<br>Options Indexes FollowSymLinks Includes ExecCGI<br>AllowOverride All<br>Order allow,deny<br>Allow from all<br>&lt;/Directory&gt;</p> <p>&nbsp;</p> <p>（这一段将localhost默认访问设置回来，将必须放在后面）<br>&lt;VirtualHost *:80&gt;<br>DocumentRoot "D:/xampp/htdocs/"<br>ServerName localhost<br>&lt;/VirtualHost&gt;<br><br>在C:\WINDOWS\system32\drivers\etc目录下的hosts文件中添加如下内容：<br><br>127.0.0.1 wordpress<br><br>把文件httpd-vhosts.conf里： <br>#NameVirtualHost *:80 <br><br>把去掉#就好了 </p></div></div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/kwishly/category/373590.html">mysql</a>, <a href="http://www.cnblogs.com/kwishly/category/348424.html">php</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2370163,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/kwishly" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/kwishly/" target="_blank"><img src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/u368331.gif" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/kwishly/">kwishly</a><br>
+<a href="http://home.cnblogs.com/u/kwishly/followees">关注 - 2</a><br>
+<a href="http://home.cnblogs.com/u/kwishly/followers">粉丝 - 4</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(2370163,'Digg')">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+	<div class="buryit" onclick="votePost(2370163,'Bury')"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/kwishly/archive/2012/01/17/2324453.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/kwishly/archive/2012/01/17/2324453.html" title="发布于2012-01-17 11:25">MongoDB基本管理命令</a><br><a href="http://www.cnblogs.com/kwishly/archive/2012/04/06/2435009.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/kwishly/archive/2012/04/06/2435009.html" title="发布于2012-04-06 17:37">php删除目录及目录下文件</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2012-02-27 17:25</span> <a href="http://www.cnblogs.com/kwishly/">kwishly</a> 阅读(<span id="post_view_count">5452</span>) 评论(<span id="post_comment_count">5</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2370163" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2370163);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=106548,cb_entryId=2370163,cb_blogApp=currentBlogApp,cb_blogUserGuid='ae092a42-883a-e111-b988-842b2b196315',cb_entryCreatedDate='2012/2/27 17:25:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3044791" class="layer">#1楼</a><a name="3044791" id="comment_anchor_3044791"></a>  <span class="comment_date">2014-10-16 10:42</span> <a id="a_comment_author_3044791" href="http://home.cnblogs.com/u/466458/" target="_blank">mirrur</a> <a href="http://msg.cnblogs.com/msg/send/mirrur" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3044791" class="blog_comment_body">有点奇怪啊，我像下面这样设置，输入www.a.com时访问正常，但输入www.b.com时，显示的还是www.a.com<br><br>&lt;VirtualHost *:80&gt;<br>DocumentRoot "D:/xampp/htdocs/test"<br>ServerName www.a.com<br>&lt;/VirtualHost&gt;<br><br>&lt;VirtualHost *:80&gt;<br>DocumentRoot "D:/xampp/htdocs/jia400svn/www"<br>ServerName www.b.com<br>&lt;/VirtualHost&gt;</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3044791,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3044791,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3155792" class="layer">#2楼</a><a name="3155792" id="comment_anchor_3155792"></a>  <span class="comment_date">2015-04-03 16:22</span> <a id="a_comment_author_3155792" href="http://www.cnblogs.com/tylerdonet/" target="_blank">nd</a> <a href="http://msg.cnblogs.com/msg/send/nd" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3155792" class="blog_comment_body">“将localhost默认访问设置回来，将必须放在后面” 这个是什么意思啊？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3155792,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3155792,'Bury',this)">反对(0)</a></div><span id="comment_3155792_avatar" style="display:none;">http://pic.cnitblog.com/face/u72678.gif?id=03224203</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3155794" class="layer">#3楼</a><a name="3155794" id="comment_anchor_3155794"></a>  <span class="comment_date">2015-04-03 16:25</span> <a id="a_comment_author_3155794" href="http://www.cnblogs.com/tylerdonet/" target="_blank">nd</a> <a href="http://msg.cnblogs.com/msg/send/nd" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3155794" class="blog_comment_body">127.0.0.1 wordpress<br>host文件里面是这样的吗 ？ 是不是wordpress.com或者www.wordpress.com这样的啊 ？ 不明白</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3155794,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3155794,'Bury',this)">反对(0)</a></div><span id="comment_3155794_avatar" style="display:none;">http://pic.cnitblog.com/face/u72678.gif?id=03224203</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3155797" class="layer">#4楼</a><a name="3155797" id="comment_anchor_3155797"></a>  <span class="comment_date">2015-04-03 16:29</span> <a id="a_comment_author_3155797" href="http://www.cnblogs.com/tylerdonet/" target="_blank">nd</a> <a href="http://msg.cnblogs.com/msg/send/nd" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3155797" class="blog_comment_body">NameVirtualHost *:80<br><br>#配置虚拟主机<br>&lt;VirtualHost *:80&gt;<br>    ServerAdmin mysite1@mysite1.com<br>    DocumentRoot "D:/Serious/website_html"<br>    ServerName www.mysite1.com<br>    ErrorLog "logs/mysite1.com-error.log"<br>    CustomLog "logs/mysite1.com-access.log" common<br>&lt;/VirtualHost&gt;<br>&lt;Directory "D:/Serious/website_html"&gt;<br>	Options FollowSymLinks<br>	AllowOverride All<br>	Order allow,deny<br>	Allow from all<br>&lt;/Directory&gt;<br>我是这么设置的然后重启了 ， 怎么forbidden呢 ？？<br>#将localhost默认访问设置回来，将必须放在后面<br>&lt;VirtualHost *:80&gt;<br>	DocumentRoot "D:/xampp/htdocs/"<br>	ServerName localhost<br>&lt;/VirtualHost&gt;</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3155797,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3155797,'Bury',this)">反对(0)</a></div><span id="comment_3155797_avatar" style="display:none;">http://pic.cnitblog.com/face/u72678.gif?id=03224203</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3155821" class="layer">#5楼</a><a name="3155821" id="comment_anchor_3155821"></a><span id="comment-maxId" style="display:none;">3155821</span><span id="comment-maxDate" style="display:none;">2015/4/3 16:44:59</span>  <span class="comment_date">2015-04-03 16:44</span> <a id="a_comment_author_3155821" href="http://www.cnblogs.com/tylerdonet/" target="_blank">nd</a> <a href="http://msg.cnblogs.com/msg/send/nd" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3155821" class="blog_comment_body">xampp\apache\conf\httpd.conf这个文件中的Directory借点也要设置一下，“开启了httpd-vhosts.conf，默认的httpd.conf默认配置失效” 这个说法有待研究 这几个词像咒语样</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3155821,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3155821,'Bury',this)">反对(0)</a></div><span id="comment_3155821_avatar" style="display:none;">http://pic.cnitblog.com/face/u72678.gif?id=03224203</span>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/promotion" target="_blank">融云，免费为你的App加入IM功能——让你的App“聊”起来！！</a><br></div>
+<div id="opt_under_post"></div>
+<script type="text/javascript">
+    var enableGoogleAd = canShowAdsense(); var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];
+    fixPostBodyFormat();
+</script>
+<div id="ad_under_post_holder">
+<script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        if (enableGoogleAd) {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        }
+    })();
+</script>
+<script type="text/javascript">
+    try {
+        if (enableGoogleAd) {
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C1_sitehome', [300, 250], 'div-gpt-ad-1346480159711-0').addService(googletag.pubads());
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C2', [468, 60], 'div-gpt-ad-1410860226396-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        };
+    } catch (e) { }
+</script>
+<div id="google_ad_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1346480159711-0" style="width: 300px; height: 250px;">
+    <script type="text/javascript">
+        try {
+            if (enableGoogleAd) {
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1346480159711-0'); });            
+            } else {
+                $('#div-gpt-ad-1346480159711-0').hide();
+            }
+    } catch (e) { }
+    </script>
+    <div style="border: 0pt none;" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__"><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" frameborder="0" height="250" width="300"></iframe></div><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom; visibility: hidden; display: none;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" frameborder="0" height="0" width="0"></iframe></div>
+</div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/519347/" target="_blank">写公司邮件时，时刻记得穿上你的职业装</a><br> ·  <a href="http://news.cnblogs.com/n/519346/" target="_blank">腾讯诉网易云音乐侵权：为什么要闹到武汉去</a><br> ·  <a href="http://news.cnblogs.com/n/519345/" target="_blank">前妻贾斯汀解读马斯克何以能“极度成功”：痴迷！痴迷！痴迷！</a><br> ·  <a href="http://news.cnblogs.com/n/519344/" target="_blank">听马斯克前妻给你讲一个创业者的真实爱情与婚姻经历</a><br> ·  <a href="http://news.cnblogs.com/n/519343/" target="_blank">螳螂杀夫？没那么普遍</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="google_ad_c2" class="c_ad_block">
+<div id="div-gpt-ad-1410860226396-0" style="width: 468px; height: 60px;">
+<script type="text/javascript">
+try {
+    if (enableGoogleAd) {
+        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1410860226396-0'); });
+    } else {
+        $('#div-gpt-ad-1346480159711-0').hide();
+    }
+} catch (e) { }
+</script>
+<div style="border: 0pt none;" id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0__container__"><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" frameborder="0" height="60" width="468"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/142268/" target="_blank">对象的职责</a><br> ·  <a href="http://kb.cnblogs.com/page/515976/" target="_blank">好对象的7大美德</a><br> ·  <a href="http://kb.cnblogs.com/page/519141/" target="_blank">iOS应用架构谈（一）：架构设计的方法论</a><br> ·  <a href="http://kb.cnblogs.com/page/519052/" target="_blank">在团队中如何带领新手</a><br> ·  <a href="http://kb.cnblogs.com/page/518888/" target="_blank">微博背后的那些算法</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 200);
+});
+</script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/kwishly/">kwishly</a><br>园龄：<a href="http://home.cnblogs.com/u/kwishly/" title="入园时间：2012-01-09">3年3个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/kwishly/followers/">4</a><br>关注：<a href="http://home.cnblogs.com/u/kwishly/followees/">2</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger('ae092a42-883a-e111-b988-842b2b196315')">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="日历" cellpadding="0" cellspacing="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2012/01/01');return false;">&lt;</a></td><td align="center">2012年2月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2012/03/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td class="CalWeekendDay" align="center">4</td></tr><tr><td class="CalWeekendDay" align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td class="CalWeekendDay" align="center">11</td></tr><tr><td class="CalWeekendDay" align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td class="CalWeekendDay" align="center">18</td></tr><tr><td class="CalWeekendDay" align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td class="CalWeekendDay" align="center">25</td></tr><tr><td class="CalWeekendDay" align="center">26</td><td align="center"><a href="http://www.cnblogs.com/kwishly/archive/2012/02/27.html"><u>27</u></a></td><td align="center">28</td><td align="center">29</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td></tr><tr><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td><td class="CalOtherMonthDay" align="center">10</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/kwishly/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/kwishly/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/kwishly/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/kwishly/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/kwishly/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/kwishly/p/3829267.html">1. axure</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3822945.html">2. post 抓取</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3768399.html">3. 判断是否为蜘蛛抓取</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3586829.html">4. js Date</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3586760.html">5. JavaScript_Date对象说明</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3529999.html">6. php过滤字符串函数</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3510133.html">7. js 高考倒计时</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3501416.html">8. php 修改数据编码</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3494386.html">9. js 时间日期格式化，获取n天后时间</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3494306.html">10. php 二维数组冒泡排序</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/kwishly/tag/php/">php</a>(2)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%20%E6%8A%93%E5%8F%96%E9%A1%B5%E9%9D%A2%E9%94%99%E8%AF%AF%20400/">php 抓取页面错误 400</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/PHP%E7%BC%96%E7%A8%8B%E4%B9%A0%E6%83%AF/">PHP编程习惯</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6/">php遍历目录文件</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%E6%B1%89%E5%AD%97%E6%95%B0%E5%AD%97%E4%BA%92%E8%BD%AC/">php汉字数字互转</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%E6%B1%89%E5%AD%97%E8%BD%AC%E6%95%B0%E5%AD%97/">php汉字转数字</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%E6%A3%80%E6%9F%A5%E5%B9%B6%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/">php检查并创建多级目录</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%E8%BF%9E%E6%8E%A5sql%20server%E5%88%86%E9%A1%B5%7Cphp%2Bsql%20server%E5%88%86%E9%A1%B5/">php连接sql server分页|php+sql server分页</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%E5%88%A0%E9%99%A4%E7%9B%AE%E5%BD%95%E5%8F%8A%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%87%E4%BB%B6/">php删除目录及目录下文件</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/php%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/">php生成静态页面</a>(1)</li><li><a href="http://www.cnblogs.com/kwishly/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(19)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/kwishly/category/373592.html">css</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/kwishly/category/373593.html">jquery(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/kwishly/category/373590.html">mysql(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/kwishly/category/348424.html">php(14)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/kwishly/category/373591.html">sql server(1)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(48)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/kwishly/archive/2014/07.html">2014年7月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/kwishly/archive/2014/06.html">2014年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/kwishly/archive/2014/03.html">2014年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/kwishly/archive/2014/01.html">2014年1月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/kwishly/archive/2013/12.html">2013年12月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/kwishly/archive/2013/11.html">2013年11月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/kwishly/archive/2013/10.html">2013年10月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/kwishly/archive/2013/06.html">2013年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/kwishly/archive/2013/04.html">2013年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/kwishly/archive/2013/01.html">2013年1月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/kwishly/archive/2012/08.html">2012年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/kwishly/archive/2012/05.html">2012年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/kwishly/archive/2012/04.html">2012年4月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/kwishly/archive/2012/02.html">2012年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/kwishly/archive/2012/01.html">2012年1月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleArchive">
+<h3 class="catListTitle">文章档案<span style="font-size:11px;font-weight:normal">(1)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/kwishly/archives/2012/01.html" rel="nofollow">2012年1月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/kwishly/archive/2012/02/27/2370163.html#3155821">1. Re:【转】XAMPP中配置多个网站</a></li>
+    <li class="recent_comment_body">xampp\apache\conf\httpd.conf这个文件中的Directory借点也要设置一下，“开启了httpd-vhosts.conf，默认的httpd.conf默认配置失效” 这个说法有......</li>
+    <li class="recent_comment_author">--nd</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/kwishly/archive/2012/02/27/2370163.html#3155797">2. Re:【转】XAMPP中配置多个网站</a></li>
+    <li class="recent_comment_body">NameVirtualHost *:80#配置虚拟主机 ServerAdmin mysite1@mysite1.com DocumentRoot "D:/Serious/website_h......</li>
+    <li class="recent_comment_author">--nd</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/kwishly/archive/2012/02/27/2370163.html#3155794">3. Re:【转】XAMPP中配置多个网站</a></li>
+    <li class="recent_comment_body">127.0.0.1 wordpress<br>host文件里面是这样的吗 ？ 是不是wordpress.com或者www.wordpress.com这样的啊 ？ 不明白</li>
+    <li class="recent_comment_author">--nd</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/kwishly/archive/2012/02/27/2370163.html#3155792">4. Re:【转】XAMPP中配置多个网站</a></li>
+    <li class="recent_comment_body">“将localhost默认访问设置回来，将必须放在后面” 这个是什么意思啊？</li>
+    <li class="recent_comment_author">--nd</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/kwishly/archive/2012/04/19/2457450.html#3056885">5. Re:mysql中的unsigned</a></li>
+    <li class="recent_comment_body">为何不能使用unsigned int来定义字段呢？总是出错。是不是我写错了？？求解~mysql&gt; create table orders(id unsigned int, cell_phone var......</li>
+    <li class="recent_comment_author">--Charlie123</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/kwishly/archive/2012/04/19/2457450.html">1. mysql中的unsigned(15476)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/02/27/2370163.html">2. 【转】XAMPP中配置多个网站(5452)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/08/15/2640449.html">3. jQuery 的 slideUp 和 slideDown 动画(4949)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/01/17/2324453.html">4. MongoDB基本管理命令(3561)</a></li><li><a href="http://www.cnblogs.com/kwishly/p/3441616.html">5. nginx 解决400 bad request 的方法（转载）(1569)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/kwishly/archive/2012/02/27/2370163.html">1. 【转】XAMPP中配置多个网站(5)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/04/19/2457481.html">2. 优化PHP程序的方法(温故知新)(2)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/08/15/2640449.html">3. jQuery 的 slideUp 和 slideDown 动画(1)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/04/19/2457450.html">4. mysql中的unsigned(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/kwishly/archive/2012/04/18/2455664.html">1. 10条PHP编程习惯助你找工作(2)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/04/19/2457450.html">2. mysql中的unsigned(1)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/04/19/2457481.html">3. 优化PHP程序的方法(温故知新)(1)</a></li><li><a href="http://www.cnblogs.com/kwishly/archive/2012/04/25/2469531.html">4. PHP性能全面优化分享(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script><script src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/check_359604.js" type="text/javascript" async=""></script><iframe style="visibility: hidden; display: none;" src="%E3%80%90%E8%BD%AC%E3%80%91XAMPP%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E7%BD%91%E7%AB%99%20-%20kwishly%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/container.htm"></iframe>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2015 kwishly
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_1365157766403"></iframe></body></html>
